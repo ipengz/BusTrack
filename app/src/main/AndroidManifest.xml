@@ -20,7 +20,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".RequestLocationActivity" />
         <activity android:name=".BusInfoActivity" />
-        <activity android:name=".UpdateBusActivity"></activity>
+        <activity android:name=".UpdateBusActivity" />
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>
