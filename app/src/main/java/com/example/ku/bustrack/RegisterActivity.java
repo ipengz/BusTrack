@@ -1,6 +1,7 @@
 package com.example.ku.bustrack;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,9 +69,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             progressDialog.hide();
-                            Toast.makeText(RegisterActivity.this,"Registered Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Registered Successfully", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }else{
-                            Toast.makeText(RegisterActivity.this,"Register Unsuccessful, please try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Register Unsuccessful, please try again", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
