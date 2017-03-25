@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class UpdateBusActivity extends AppCompatActivity {
     Button buttonUpdate;
 
     DatabaseReference databaseBus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class UpdateBusActivity extends AppCompatActivity {
             BusInfo bus = new BusInfo(id,BusType,BusNo,BusCond);
             databaseBus.child(id).setValue(bus);
             Toast.makeText(this,"Bus updated", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, MenuActivity.class));
 
         }else{
             Toast.makeText(this, "Please enter bus plate no", Toast.LENGTH_LONG).show();

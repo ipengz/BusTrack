@@ -15,6 +15,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button businfobtn;
     Button busUpdatebtn;
     Button logoutbtn;
+    Button busListbtn;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -35,11 +36,13 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         businfobtn = (Button)(findViewById(R.id.btn_businfo));
         busUpdatebtn = (Button)(findViewById(R.id.btn_update));
         logoutbtn = (Button)(findViewById(R.id.btn_logout));
+        busListbtn = (Button)(findViewById(R.id.btn_buslist));
 
         locatebusbtn.setOnClickListener(this);
         businfobtn.setOnClickListener(this);
         busUpdatebtn.setOnClickListener(this);
         logoutbtn.setOnClickListener(this);
+        busListbtn.setOnClickListener(this);
 
 
 
@@ -56,6 +59,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         if (v == busUpdatebtn){
             finish();
             startActivity(new Intent(this, UpdateBusActivity.class));
+        }
+        if (v == businfobtn){
+            finish();
+            startActivity(new Intent(this, BusInfoActivity.class));
         }
 
     }
