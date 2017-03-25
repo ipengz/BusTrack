@@ -31,6 +31,8 @@ public class BusInfoActivity extends AppCompatActivity {
         busList = new ArrayList<>();
 
         listViewBus = (ListView) findViewById(R.id.listViewBus);
+
+        databaseBus = FirebaseDatabase.getInstance().getReference("bus");
     }
 
     @Override
