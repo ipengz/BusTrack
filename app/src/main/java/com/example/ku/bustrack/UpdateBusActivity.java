@@ -30,7 +30,6 @@ public class UpdateBusActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_bus);
 
         databaseBus = FirebaseDatabase.getInstance().getReference("bus");
-
         editTextBusPlate = (EditText)findViewById(R.id.editText_BusPlateNo);
         SpinnerBusType = (Spinner) findViewById(R.id.spinner_BusType);
         SpinnerOperation = (Spinner) findViewById(R.id.spinner_Operation);
