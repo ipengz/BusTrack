@@ -42,7 +42,6 @@ public class BusInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot busSnapshot: dataSnapshot.getChildren()){
-                    busList.clear();
                     BusInfo businfo = busSnapshot.getValue(BusInfo.class);
 
                     busList.add(businfo);
