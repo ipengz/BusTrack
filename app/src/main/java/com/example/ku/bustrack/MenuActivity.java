@@ -64,6 +64,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             finish();
             startActivity(new Intent(this, BusInfoActivity.class));
         }
+        if (v == locatebusbtn){
+            finish();
+            startActivity(new Intent(this, MapsActivity.class));
+        }
 
     }
 }

@@ -11,4 +11,5 @@
         <item>Operating</item>
         <item>Not Operating</item>
     </array>
+    <string name="title_activity_maps">Map</string>
 </resources>
