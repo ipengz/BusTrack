@@ -30,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 //kjiye0j
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -43,13 +44,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        //Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(3.1862, 101.6299);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in DesaParkCity"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 18));
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[] {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+
+      /* if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+           ActivityCompat.requestPermissions(this, new String[] {
                             android.Manifest.permission.ACCESS_FINE_LOCATION,
                             android.Manifest.permission.ACCESS_COARSE_LOCATION },
                     REQUEST_CODE);
@@ -79,6 +91,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
                 break;
             }
-        }
+        }*/
     }
 }
