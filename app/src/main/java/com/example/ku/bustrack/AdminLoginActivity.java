@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.LoginFilter;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,40 +16,31 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+public class AdminLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextusername;
     private EditText editTextpassword;
-    private Button registerbtn;
     private Button loginbtn;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-    private Button adminbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_admin_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-        editTextusername = (EditText)findViewById(R.id.login_username);
-        editTextpassword = (EditText)findViewById(R.id.login_password);
-        loginbtn = (Button) findViewById(R.id.login_buttonLogin);
-        registerbtn = (Button)findViewById(R.id.login_register);
-        adminbtn = (Button)findViewById(R.id.button_admin);
+        editTextusername = (EditText)findViewById(R.id.editText_username);
+        editTextpassword = (EditText)findViewById(R.id.editText_password);
+        loginbtn = (Button) findViewById(R.id.button_login);
 
         loginbtn.setOnClickListener(this);
-        registerbtn.setOnClickListener(this);
-        adminbtn.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
 
-
-
     }
-
-    private void userLogin(){
+    private void adminUserLogin(){
         String email = editTextusername.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
 
@@ -75,26 +64,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful()){
                             progressDialog.dismiss();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                            startActivity(new Intent(getApplicationContext(), AdminMenuActivity.class));
 
                         }else{
                             progressDialog.dismiss();
-                            Toast.makeText(LoginActivity.this,"Login Unsuccessful, please try again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(AdminLoginActivity.this,"Login Unsuccessful, please try again", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
     }
-
-    @Override
-    public void onClick(View v) {
+    public void onClick (View v){
         if(v == loginbtn){
-            userLogin();
-        }
-        if(v == registerbtn){
-            startActivity(new Intent(this, RegisterActivity.class));
-        }
-        if(v == adminbtn){
-            startActivity(new Intent(this, AdminLoginActivity.class));
+            adminUserLogin();
+
         }
     }
 }
