@@ -49,7 +49,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".BusScheduleActivity" />
         <activity android:name=".AdminLoginActivity" />
-        <activity android:name=".AdminMenuActivity"></activity>
+        <activity android:name=".AdminMenuActivity" />
+        <activity android:name=".ScheduleListActivity"></activity>
     </application>
 
 </manifest>

@@ -53,7 +53,7 @@ public class UpdateBusActivity extends AppCompatActivity {
             BusInfo bus = new BusInfo(id,BusType,BusNo,BusCond);
             databaseBus.child(id).setValue(bus);
             Toast.makeText(this,"Bus updated", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MenuActivity.class));
+            startActivity(new Intent(this, AdminMenuActivity.class));
 
         }else{
             Toast.makeText(this, "Please enter bus plate no", Toast.LENGTH_LONG).show();

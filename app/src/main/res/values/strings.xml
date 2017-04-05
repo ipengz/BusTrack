@@ -2,9 +2,9 @@
     <string name="app_name">BusTrack</string>
 
     <array name="bus">
-        <item>Bus1</item>
-        <item>Bus2</item>
-        <item>Bus3</item>
+        <item>APU_Bus 1</item>
+        <item>APU_Bus 2</item>
+        <item>APU_Bus 3</item>
     </array>
 
     <array name="operation">

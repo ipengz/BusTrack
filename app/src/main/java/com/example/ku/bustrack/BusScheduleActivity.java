@@ -3,8 +3,10 @@ package com.example.ku.bustrack;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,15 +42,17 @@ public class BusScheduleActivity extends AppCompatActivity {
     }
         private void scheduleBus(){
             String BusSchedule = SpinnerSchedule.getSelectedItem().toString();
-            String BusType = SpinnerBus.getSelectedItem().toString();
+            String BusT = SpinnerBus.getSelectedItem().toString();
             String BusTime = SpinnerTime.getSelectedItem().toString();
 
-            String id = databaseSchedule.push().getKey();
-            BusInfo bus = new BusInfo(id,BusSchedule,BusType,BusTime);
-            databaseSchedule.child(id).setValue(bus);
-            Toast.makeText(this,"Bus scheduled", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MenuActivity.class));
 
-    }
+                String id = databaseSchedule.push().getKey();
+                BusSchedule schedule = new BusSchedule(id,BusSchedule,BusT,BusTime);
+                databaseSchedule.child(id).setValue(schedule);
+                Toast.makeText(this,"Bus scheduled", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, MenuActivity.class));
+
+            }
+
     }
 
