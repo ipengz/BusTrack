@@ -50,7 +50,7 @@ public class BusScheduleActivity extends AppCompatActivity {
                 BusSchedule schedule = new BusSchedule(id,BusSchedule,BusT,BusTime);
                 databaseSchedule.child(id).setValue(schedule);
                 Toast.makeText(this,"Bus scheduled", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, MenuActivity.class));
+                startActivity(new Intent(this, AdminMenuActivity.class));
 
             }
 

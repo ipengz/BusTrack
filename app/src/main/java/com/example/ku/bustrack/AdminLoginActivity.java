@@ -21,6 +21,7 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
     private EditText editTextusername;
     private EditText editTextpassword;
     private Button loginbtn;
+    private Button userLoginbtn;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
@@ -35,9 +36,11 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
         editTextusername = (EditText)findViewById(R.id.editText_username);
         editTextpassword = (EditText)findViewById(R.id.editText_password);
         loginbtn = (Button) findViewById(R.id.button_login);
+        userLoginbtn = (Button) findViewById(R.id.button_userLogin);
 
         loginbtn.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
+        userLoginbtn.setOnClickListener(this);
 
     }
     private void adminUserLogin(){
@@ -76,7 +79,9 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
     public void onClick (View v){
         if(v == loginbtn){
             adminUserLogin();
-
+        }
+        if (v == userLoginbtn){
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 }
