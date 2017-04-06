@@ -13,6 +13,7 @@ public class AdminMenuActivity extends AppCompatActivity implements View.OnClick
 
     Button updateInfo;
     Button updateSchedule;
+    Button adminLogout;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -31,9 +32,11 @@ public class AdminMenuActivity extends AppCompatActivity implements View.OnClick
 
         updateInfo = (Button) findViewById(R.id.button_updateinfo);
         updateSchedule = (Button) findViewById(R.id.button_updateshedule);
+        adminLogout = (Button) findViewById(R.id.button_adminLogout);
 
         updateInfo.setOnClickListener(this);
         updateSchedule.setOnClickListener(this);
+        adminLogout.setOnClickListener(this);
     }
 
     @Override
@@ -43,7 +46,11 @@ public class AdminMenuActivity extends AppCompatActivity implements View.OnClick
         }
         if(v == updateSchedule){
             startActivity(new Intent(this, BusScheduleActivity.class));
-
+        }
+        if(v == adminLogout){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, AdminLoginActivity.class));
         }
     }
 }
